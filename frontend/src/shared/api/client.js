@@ -1,64 +1,44 @@
 import axios from "axios";
 
-const DEFAULT_BASE_URLS = [
-  import.meta.env.VITE_API_URL,
-  "http://localhost:5000/api",
-  "http://localhost:5001/api",
-  "http://localhost:5002/api",
-  "http://localhost:5003/api",
-].filter(Boolean);
+function normalizeBaseUrl(url) {
+  if (!url) return "";
 
-function getBaseUrls() {
-  return Array.from(new Set(DEFAULT_BASE_URLS));
+  const trimmedUrl = url.trim().replace(/\/+$/, "");
+  if (!trimmedUrl) return "";
+
+  return /\/api(?:\/|$)/i.test(trimmedUrl) ? trimmedUrl : `${trimmedUrl}/api`;
 }
+
+const API_BASE_URL = normalizeBaseUrl(
+  import.meta.env.VITE_API_URL || "http://localhost:5000",
+);
 
 export const api = axios.create({
-  baseURL: getBaseUrls()[0],
+  baseURL: API_BASE_URL,
 });
 
-let activeBaseUrlIndex = 0;
-
-function setBaseUrl(nextUrl) {
-  api.defaults.baseURL = nextUrl;
-  activeBaseUrlIndex = getBaseUrls().indexOf(nextUrl);
-}
-
-// Attach the JWT to every request once the user's logged in.
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("nebula_token");
-  if (token) config.headers.Authorization = `Bearer ${token}`;
+
+  if (token) {
+    config.headers = config.headers ?? {};
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+
   return config;
 });
 
-// Central 401 handling — bounce to login instead of every caller checking status.
 api.interceptors.response.use(
-  (res) => res,
-  async (err) => {
-    const urls = getBaseUrls();
-    const currentBaseUrl = api.defaults.baseURL;
-    const shouldRetry =
-      (err.code === "ERR_NETWORK" ||
-        err.code === "ECONNABORTED" ||
-        err.response?.status === 404) &&
-      urls.length > 1 &&
-      err.config?.url;
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      localStorage.removeItem("nebula_token");
 
-    if (shouldRetry) {
-      const nextIndex = (urls.indexOf(currentBaseUrl) + 1) % urls.length;
-      const nextUrl = urls[nextIndex];
-
-      if (nextUrl && nextUrl !== currentBaseUrl) {
-        setBaseUrl(nextUrl);
-        err.config.baseURL = nextUrl;
-        return api.request(err.config);
+      if (window.location.pathname !== "/login") {
+        window.location.href = "/login";
       }
     }
 
-    if (err.response?.status === 401) {
-      localStorage.removeItem("nebula_token");
-      window.location.href = "/login";
-    }
-
-    return Promise.reject(err);
+    return Promise.reject(error);
   },
 );
