@@ -1,14 +1,13 @@
-import { logger } from '../utils/logger.js';
-import { ApiError } from '../utils/ApiError.js';
+import { logger } from "../utils/logger.js";
+import { ApiError } from "../utils/ApiError.js";
 
 export function notFound(req, res, next) {
   next(new ApiError(404, `Route not found: ${req.method} ${req.originalUrl}`));
 }
 
-// Must be registered last. 4-arg signature is what makes Express treat this as error middleware.
 export function errorHandler(err, req, res, next) {
   const statusCode = err instanceof ApiError ? err.statusCode : 500;
-  const message = err.message || 'Internal server error';
+  const message = err.message || "Internal server error";
 
   if (statusCode >= 500) {
     logger.error(err);
