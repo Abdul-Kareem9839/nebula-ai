@@ -12,6 +12,8 @@ import skillRoutes from "./features/skills/skill.routes.js";
 
 export const app = express();
 
+app.set("trust proxy", 1);
+
 app.use(
   cors({
     origin: env.clientUrl,
