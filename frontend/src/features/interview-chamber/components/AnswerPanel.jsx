@@ -1,10 +1,6 @@
 import { motion } from "framer-motion";
 import { VoiceVisualizer } from "./VoiceVisualizer.jsx";
 
-/**
- * The candidate's side of the conversation. Looks like a message
- * composer inside an AI chat surface, not a form field.
- */
 export function AnswerPanel({
   answer,
   onChangeAnswer,
@@ -31,7 +27,7 @@ export function AnswerPanel({
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className="w-full max-w-2xl rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/10 p-5 md:p-6 space-y-4 shadow-2xl"
     >
-      {/* Panel Header */}
+      {/* PANEL HEADER */}
       <div className="flex items-center justify-between">
         <span className="text-xs font-medium tracking-[0.2em] uppercase text-nebula-text/40">
           Your Response
@@ -51,10 +47,10 @@ export function AnswerPanel({
         )}
       </div>
 
-      {/* Audio Waveform / Visualizer */}
+      {/* AUDIO WAVEFORM / VISUALIZER */}
       <VoiceVisualizer state={voiceState} />
 
-      {/* Answer Text Area */}
+      {/* ANSWER TEXT AREA */}
       <textarea
         className="w-full bg-black/30 rounded-2xl p-4 min-h-[120px] resize-none text-nebula-text placeholder:text-nebula-text/30 border border-white/[0.08] focus:border-nebula-glow/60 focus:ring-1 focus:ring-nebula-glow/40 focus:outline-none transition-all duration-300 text-sm md:text-base leading-relaxed"
         placeholder="Type your answer, or speak it aloud… (Ctrl + Enter to submit)"
@@ -64,7 +60,7 @@ export function AnswerPanel({
         disabled={disabled}
       />
 
-      {/* Action Controls */}
+      {/* ACTION CONTROLS */}
       <div className="flex items-center gap-3 pt-1">
         {isSupported && (
           <motion.button
@@ -83,7 +79,7 @@ export function AnswerPanel({
           </motion.button>
         )}
 
-        {/* Primary Submit Button */}
+        {/* PRIMARY SUBMIT BUTTON */}
         <div className="relative flex-1 group">
           {!disabled && answer.trim() && (
             <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-purple-500 to-cyan-400 opacity-50 blur transition-all duration-500 group-hover:opacity-90 group-hover:blur-md" />

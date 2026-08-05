@@ -20,7 +20,7 @@ const FEATURES = [
         <line x1="10" y1="9" x2="8" y2="9" />
       </svg>
     ),
-    accentColor: "rgba(56, 189, 248, 0.25)", // Cyan
+    accentColor: "rgba(56, 189, 248, 0.25)",
   },
   {
     title: "Voice Interview",
@@ -40,7 +40,7 @@ const FEATURES = [
         <line x1="8" y1="23" x2="16" y2="23" />
       </svg>
     ),
-    accentColor: "rgba(168, 85, 247, 0.25)", // Purple
+    accentColor: "rgba(168, 85, 247, 0.25)",
   },
   {
     title: "Adaptive Questions",
@@ -57,7 +57,7 @@ const FEATURES = [
         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
       </svg>
     ),
-    accentColor: "rgba(99, 102, 241, 0.25)", // Indigo
+    accentColor: "rgba(99, 102, 241, 0.25)",
   },
   {
     title: "Skill Evolution",
@@ -75,7 +75,7 @@ const FEATURES = [
         <polyline points="17 6 23 6 23 12" />
       </svg>
     ),
-    accentColor: "rgba(244, 114, 182, 0.25)", // Pink
+    accentColor: "rgba(244, 114, 182, 0.25)",
   },
 ];
 
@@ -103,7 +103,7 @@ export function FeatureSection() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -4 }}
           >
-            {/* Ambient Background Glow on Hover */}
+            {/* AMBIENT BACKGROUND GLOW ON HOVER */}
             <div
               className="absolute -top-12 -right-12 w-40 h-40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-3xl pointer-events-none"
               style={{
@@ -111,7 +111,7 @@ export function FeatureSection() {
               }}
             />
 
-            {/* Top Row: Icon Container & Status Dot */}
+            {/* TOP ROW: ICON CONTAINER & STATUS DOT */}
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 group-hover:scale-110 group-hover:border-white/20 transition-all duration-300">
                 {feature.icon}
@@ -119,7 +119,7 @@ export function FeatureSection() {
               <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(56,189,248,0.8)]" />
             </div>
 
-            {/* Feature Content */}
+            {/* FEATURE CONTENT */}
             <h3 className="font-display text-lg font-medium tracking-tight text-white mb-2 transition-colors duration-300 group-hover:text-cyan-200">
               {feature.title}
             </h3>

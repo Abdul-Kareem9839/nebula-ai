@@ -14,7 +14,7 @@ export function HeroSection() {
         show: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
       }}
     >
-      {/* Background Ambient Cosmic Glow */}
+      {/* BACKGROUND AMBIENT COSMIC GLOW */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full opacity-25 blur-3xl pointer-events-none -z-10"
         style={{
@@ -23,9 +23,8 @@ export function HeroSection() {
         }}
       />
 
-      {/* Hero Content Container with tight vertical gaps */}
+      {/* HERO CONTENT CONTAINER */}
       <div className="flex flex-col items-center justify-center gap-4 sm:gap-5 max-w-3xl my-auto">
-        {/* Interactive Orb */}
         <motion.div
           className="relative scale-90 sm:scale-100"
           variants={{
@@ -38,7 +37,7 @@ export function HeroSection() {
           <Orb state="idle" />
         </motion.div>
 
-        {/* Main Headline */}
+        {/* MAIN HEADLINE */}
         <motion.h1
           className="font-display font-medium tracking-tight text-4xl sm:text-5xl md:text-6xl leading-[1.1] bg-clip-text text-transparent bg-gradient-to-b from-white via-slate-100 to-slate-400 drop-shadow-sm"
           variants={{
@@ -50,7 +49,7 @@ export function HeroSection() {
           Your AI Interview Mentor
         </motion.h1>
 
-        {/* Subheadline Tagline */}
+        {/* SUBHEADLINE TAGLINE */}
         <motion.p
           className="text-base sm:text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-indigo-200 to-cyan-300 tracking-wide max-w-xl"
           variants={{
@@ -62,7 +61,7 @@ export function HeroSection() {
           Practice. Improve. Evolve.
         </motion.p>
 
-        {/* Description */}
+        {/* DESCRIPTION */}
         <motion.p
           className="text-xs sm:text-sm md:text-base text-slate-400 max-w-md leading-relaxed"
           variants={{
@@ -75,7 +74,7 @@ export function HeroSection() {
           actually perform, and grows with you until you're interview ready.
         </motion.p>
 
-        {/* Action Buttons */}
+        {/* ACTION BUTTONS */}
         <motion.div
           className="flex flex-col sm:flex-row items-center gap-5 pt-2"
           variants={{
@@ -84,7 +83,6 @@ export function HeroSection() {
           }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          {/* Primary Action Button */}
           <div className="relative group">
             <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-purple-500 to-cyan-400 opacity-60 blur transition-all duration-500 group-hover:opacity-100 group-hover:blur-md" />
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
@@ -100,7 +98,6 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Secondary Action Button */}
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
             <Link
               to="/skill-galaxy"

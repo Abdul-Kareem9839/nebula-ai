@@ -6,7 +6,7 @@ function getPerformanceStyle(overallScore) {
 
   if (!hasScore) {
     return {
-      // Cosmic Deep Indigo -> Vibrant Cyan Accent (Unrated / Pending)
+      /* UNRATED / PENDING */
       gradient:
         "linear-gradient(135deg, #312e81 0%, #1e1b4b 45%, #06b6d4 100%)",
       glow: "rgba(6, 182, 212, 0.5)",
@@ -16,7 +16,7 @@ function getPerformanceStyle(overallScore) {
   }
   if (overallScore >= 81) {
     return {
-      // Radiant Gold / Amber
+      /* RADIANT GOLD / AMBER */
       gradient:
         "linear-gradient(135deg, #fef3c7 0%, #f59e0b 50%, #d97706 100%)",
       glow: "rgba(245, 158, 11, 0.6)",
@@ -26,7 +26,7 @@ function getPerformanceStyle(overallScore) {
   }
   if (overallScore >= 61) {
     return {
-      // Deep Purple / Violet
+      /* DEEP PURPLE / VIOLET */
       gradient:
         "linear-gradient(135deg, #c084fc 0%, #9333ea 50%, #4c1d95 100%)",
       glow: "rgba(147, 51, 234, 0.55)",
@@ -35,7 +35,7 @@ function getPerformanceStyle(overallScore) {
     };
   }
   return {
-    // Sapphire Blue / Sky
+    /* SAPPHIRE BLUE / SKY */
     gradient: "linear-gradient(135deg, #38bdf8 0%, #0284c7 50%, #0f172a 100%)",
     glow: "rgba(56, 189, 248, 0.5)",
     shadow: "0 0 12px rgba(56, 189, 248, 0.35)",
@@ -101,7 +101,7 @@ export function CrystalCard({
         onClick={() => onOpen?.(crystal)}
         className="group relative flex w-full cursor-pointer flex-col justify-between overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-5 text-left transition-all duration-300 hover:border-white/20 hover:bg-white/[0.04]"
       >
-        {/* Header */}
+        {/* HEADER */}
         <div className="flex items-start justify-between gap-3 pr-6">
           <div>
             <p className="font-display text-lg font-semibold text-nebula-text group-hover:text-nebula-cyan transition-colors">
@@ -114,15 +114,13 @@ export function CrystalCard({
             </p>
           </div>
 
-          {/* Polygon Crystal Accent with Dual Ambient Glow */}
+          {/* POLYGON CRYSTAL ACCENT */}
           <div className="relative shrink-0 flex items-center justify-center">
-            {/* Background Ambient Glow */}
             <div
               className="absolute inset-0 rounded-full blur-md opacity-60 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
               style={{ background: perf.glow }}
             />
 
-            {/* Polygon Crystal Shape */}
             <div
               className="relative h-10 w-10 opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
               style={{
@@ -135,7 +133,7 @@ export function CrystalCard({
           </div>
         </div>
 
-        {/* Middle Score / Status Section */}
+        {/* SCORE & STATUS SECTION */}
         <div className="mt-6 flex items-end justify-between border-t border-white/5 pt-4">
           <div>
             <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-nebula-text/35">
@@ -166,7 +164,7 @@ export function CrystalCard({
           </div>
         </div>
 
-        {/* Meta Information Row */}
+        {/* META INFORMATION ROW */}
         <div className="mt-4 flex items-center justify-between text-xs text-nebula-text/40">
           <span className="capitalize">{statusLabel}</span>
           <span>•</span>
@@ -175,7 +173,7 @@ export function CrystalCard({
           <span>{questionCount} Qs</span>
         </div>
 
-        {/* Bottom Action Line */}
+        {/* BOTTOM ACTION LINE */}
         <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-3 text-xs">
           <span className="text-nebula-text/35">View details</span>
           <span className="font-medium text-nebula-cyan group-hover:translate-x-0.5 transition-transform">
@@ -183,7 +181,7 @@ export function CrystalCard({
           </span>
         </div>
 
-        {/* Action Menu Toggle (Isolated Container) */}
+        {/* ACTION MENU TOGGLE */}
         <div ref={menuRef} className="absolute right-3 top-3 z-10">
           <button
             type="button"

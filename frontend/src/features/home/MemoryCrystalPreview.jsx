@@ -39,7 +39,7 @@ export function MemoryCrystalPreview() {
         what to improve next.
       </p>
 
-      {/* Grid Container */}
+      {/* GRID CONTAINER */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
         {PREVIEW_CRYSTALS.map((crystal, i) => {
           const isPrimary = crystal.recency === "primary";
@@ -58,7 +58,7 @@ export function MemoryCrystalPreview() {
                 ease: "easeInOut",
               }}
             >
-              {/* Background Ambient Glow */}
+              {/* BACKGROUND AMBIENT GLOW */}
               <div
                 className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl pointer-events-none -z-10"
                 style={{
@@ -66,9 +66,8 @@ export function MemoryCrystalPreview() {
                 }}
               />
 
-              {/* Crystal Gem Container */}
+              {/* CRYSTAL GEM CONTAINER */}
               <div className="relative mb-6 flex items-center justify-center">
-                {/* Glowing Backlight */}
                 <div
                   className="absolute rounded-full blur-md transition-transform duration-500 group-hover:scale-125"
                   style={{
@@ -78,7 +77,6 @@ export function MemoryCrystalPreview() {
                   }}
                 />
 
-                {/* Crystal Vector Shape */}
                 <motion.div
                   className="relative cursor-pointer"
                   whileHover={{ rotate: [0, -5, 5, 0], scale: 1.1 }}
@@ -92,31 +90,26 @@ export function MemoryCrystalPreview() {
                     xmlns="http://www.w3.org/2000/svg"
                     className="drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
                   >
-                    {/* Top Facet Left */}
                     <path
                       d="M20 2L4 16L20 22V2Z"
                       fill="url(#crystal-grad-1)"
                       fillOpacity="0.9"
                     />
-                    {/* Top Facet Right */}
                     <path
                       d="M20 2L36 16L20 22V2Z"
                       fill="url(#crystal-grad-2)"
                       fillOpacity="0.75"
                     />
-                    {/* Bottom Facet Left */}
                     <path
                       d="M4 16L20 46V22L4 16Z"
                       fill="url(#crystal-grad-1)"
                       fillOpacity="0.8"
                     />
-                    {/* Bottom Facet Right */}
                     <path
                       d="M36 16L20 46V22L36 16Z"
                       fill="url(#crystal-grad-2)"
                       fillOpacity="0.95"
                     />
-                    {/* Center Highlight Edge */}
                     <line
                       x1="20"
                       y1="2"
@@ -153,7 +146,7 @@ export function MemoryCrystalPreview() {
                 </motion.div>
               </div>
 
-              {/* Role Title */}
+              {/* ROLE TITLE */}
               <h3
                 className={`font-medium tracking-tight text-nebula-text transition-colors duration-300 group-hover:text-white ${
                   isPrimary ? "text-base" : "text-sm"
@@ -162,7 +155,7 @@ export function MemoryCrystalPreview() {
                 {crystal.role}
               </h3>
 
-              {/* Type Badge */}
+              {/* TYPE BADGE */}
               <span className="mt-1.5 text-xs font-medium text-nebula-text/50 tracking-wider">
                 {crystal.type}
               </span>
@@ -171,7 +164,7 @@ export function MemoryCrystalPreview() {
         })}
       </div>
 
-      {/* Enhanced Memory Crystal Button */}
+      {/* MEMORY CRYSTAL BUTTON */}
       <div className="mt-14">
         <Link
           to="/memory-crystals"

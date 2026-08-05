@@ -1,10 +1,5 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-/**
- * Renders interview.skills as staggered badges. Schema entry shape is
- * { name, score, confidence, level } — only `name` is displayed here;
- * missing/empty array renders nothing.
- */
 export function SkillBadges({ skills = [] }) {
   if (!skills.length) return null;
 

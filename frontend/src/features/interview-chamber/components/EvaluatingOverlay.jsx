@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 /**
  * Full-screen blocking overlay shown while the backend is generating
@@ -24,12 +24,19 @@ export function EvaluatingOverlay() {
               key={i}
               className="w-2 h-2 rounded-full bg-nebula-glow"
               animate={{ opacity: [0.25, 1, 0.25], scale: [1, 1.4, 1] }}
-              transition={{ duration: 1, repeat: Infinity, delay: i * 0.15, ease: 'easeInOut' }}
-              style={{ boxShadow: '0 0 10px rgba(167,139,250,0.7)' }}
+              transition={{
+                duration: 1,
+                repeat: Infinity,
+                delay: i * 0.15,
+                ease: "easeInOut",
+              }}
+              style={{ boxShadow: "0 0 10px rgba(167,139,250,0.7)" }}
             />
           ))}
         </div>
-        <p className="text-sm text-nebula-text/70 tracking-wide">Evaluating your interview…</p>
+        <p className="text-sm text-nebula-text/70 tracking-wide">
+          Evaluating your interview…
+        </p>
       </div>
     </motion.div>
   );

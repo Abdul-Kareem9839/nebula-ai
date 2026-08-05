@@ -42,13 +42,12 @@ export function RegisterPage() {
 
   return (
     <div className="min-h-screen relative bg-[#060713] text-slate-100 flex items-center justify-center p-6 sm:p-8 lg:p-12 overflow-hidden font-sans select-none">
-      {/* ================= BACKGROUND COSMIC ENVIRONMENT ================= */}
+      {/* BACKGROUND COSMIC ENVIRONMENT */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute w-[500px] h-[500px] rounded-full bg-purple-900/15 blur-[160px] -top-32 -left-32" />
         <div className="absolute w-[500px] h-[500px] rounded-full bg-cyan-900/15 blur-[160px] -bottom-32 -right-32" />
         <div className="absolute w-[350px] h-[350px] rounded-full bg-pink-900/10 blur-[140px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
-        {/* Subtle Particles (~20 particles) */}
         <div className="absolute inset-0">
           {Array.from({ length: 20 }).map((_, i) => (
             <motion.div
@@ -72,36 +71,27 @@ export function RegisterPage() {
         </div>
       </div>
 
-      {/* ================= MAIN TWO-COLUMN CONTAINER ================= */}
+      {/* MAIN TWO-COLUMN CONTAINER */}
       <div className="relative z-10 w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center my-auto">
         {/* LEFT COLUMN: HERO BRANDING */}
         <div className="lg:col-span-6 space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start">
-          {/* Integrated Rotating Orbit Icon & Larger Brand Name (No Border/Pill) */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="inline-flex items-center gap-3"
           >
-            {/* Rotating Orbit Icon with Dual-Color (Purple + Cyan) Nebula Glow */}
             <div className="relative flex items-center justify-center">
-              {/* Outer Purple Ambient Glow */}
               <div className="absolute -inset-1.5 rounded-full bg-purple-600/50 blur-md pointer-events-none animate-pulse" />
-
-              {/* Inner Cyan Ambient Glow */}
               <div className="absolute inset-0 rounded-full bg-cyan-400/40 blur-sm pointer-events-none" />
-
-              {/* Icon with Cyan Drop Shadow */}
               <Orbit className="relative w-6 h-6 text-cyan-300 animate-[spin_10s_linear_infinite] drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
             </div>
 
-            {/* Larger Brand Name */}
             <span className="font-display text-base font-semibold tracking-wider uppercase text-slate-100">
               Nebula <span className="text-purple-400">AI</span>
             </span>
           </motion.div>
 
-          {/* Headline & Subtitle */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -120,7 +110,6 @@ export function RegisterPage() {
             </p>
           </motion.div>
 
-          {/* Feature Checklist */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -139,7 +128,7 @@ export function RegisterPage() {
           </motion.div>
         </div>
 
-        {/* RIGHT COLUMN: EXPANDED REGISTER CARD */}
+        {/* RIGHT COLUMN: REGISTER CARD */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -177,7 +166,6 @@ export function RegisterPage() {
 
             {/* FORM */}
             <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Full Name Field */}
               <div className="space-y-1.5">
                 <label className="block text-[11px] font-medium uppercase tracking-wider text-slate-400 ml-1">
                   Full Name
@@ -195,7 +183,6 @@ export function RegisterPage() {
                 </div>
               </div>
 
-              {/* Email Field */}
               <div className="space-y-1.5">
                 <label className="block text-[11px] font-medium uppercase tracking-wider text-slate-400 ml-1">
                   Email Address
@@ -213,7 +200,6 @@ export function RegisterPage() {
                 </div>
               </div>
 
-              {/* Password Field */}
               <div className="space-y-1.5">
                 <label className="block text-[11px] font-medium uppercase tracking-wider text-slate-400 ml-1">
                   Password
@@ -261,7 +247,7 @@ export function RegisterPage() {
               </motion.button>
             </form>
 
-            {/* COMPACT GOOGLE SIGN UP OPTION */}
+            {/* GOOGLE SIGN UP OPTION */}
             <div className="mt-4 pt-4">
               <button
                 type="button"
@@ -289,7 +275,7 @@ export function RegisterPage() {
               </button>
             </div>
 
-            {/* TRUST & LOGIN LINK */}
+            {/* LOGIN LINK */}
             <div className="mt-8 pt-5 border-t border-white/10 flex flex-col items-center gap-2.5 text-center">
               <p className="text-xs text-slate-400">
                 Already have an account?{" "}

@@ -10,12 +10,6 @@ const SUB_SCORES = [
   { key: "confidenceScore", label: "Confidence" },
 ];
 
-/**
- * The "Detailed Report Screen" — reached from OverallScore via
- * "View Full Report". Composes the four score cards, the feedback
- * panel, and skill badges from the same completed `interview` object;
- * nothing here re-fetches or duplicates the score-circle markup.
- */
 export function InterviewReport({ interview, onBackToDashboard }) {
   const turns = interview?.turns ?? [];
 

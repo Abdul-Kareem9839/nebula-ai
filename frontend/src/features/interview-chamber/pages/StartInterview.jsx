@@ -6,7 +6,6 @@ import { StarBackground } from "../../universe/StarBackground.jsx";
 import { Orb } from "../../orb/Orb.jsx";
 import { Code2, Server, Layers, Bot, BarChart3, Terminal } from "lucide-react";
 
-// Example card rendering:
 <div className="flex items-center gap-3 p-4 rounded-2xl bg-white/[0.03] border-x border-white/10">
   <Code2 className="w-5 h-5 text-purple-400" />
   <span className="text-sm font-medium text-slate-200">Frontend Developer</span>

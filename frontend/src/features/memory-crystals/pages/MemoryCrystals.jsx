@@ -244,8 +244,7 @@ export function MemoryCrystals() {
       <StarBackground />
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
-        {/* Header Title */}
-        {/* Header Title */}
+        {/* HEADER TITLE */}
         <motion.div
           className="mx-auto mb-8 max-w-3xl text-center"
           initial={{ opacity: 0, y: 12 }}
@@ -264,7 +263,7 @@ export function MemoryCrystals() {
           </p>
         </motion.div>
 
-        {/* Floating Toast Notification */}
+        {/* FLOATING TOAST NOTIFICATION */}
         <AnimatePresence>
           {toast && (
             <motion.div
@@ -282,7 +281,7 @@ export function MemoryCrystals() {
           )}
         </AnimatePresence>
 
-        {/* Loading Skeleton */}
+        {/* LOADING SKELETON */}
         {loading ? (
           <div className="grid gap-4 py-12 grid-cols-2 xl:grid-cols-4">
             {Array.from({ length: 4 }).map((_, index) => (
@@ -342,7 +341,7 @@ export function MemoryCrystals() {
           </motion.div>
         ) : (
           <>
-            {/* Stats Overview */}
+            {/* STATS OVERVIEW */}
             <motion.div
               className="mb-6 grid gap-3 grid-cols-2 xl:grid-cols-4"
               initial={{ opacity: 0, y: 10 }}
@@ -399,7 +398,7 @@ export function MemoryCrystals() {
               </div>
             </motion.div>
 
-            {/* Filter Toolbar */}
+            {/* FILTER TOOLBAR */}
             <CrystalFilters
               search={filters.search}
               onSearchChange={setFilter("search")}
@@ -422,7 +421,7 @@ export function MemoryCrystals() {
               onReset={() => setFilters(DEFAULT_FILTERS)}
             />
 
-            {/* Main Views Container */}
+            {/* MAIN VIEWS CONTAINER */}
             {filteredCrystals.length === 0 ? (
               <motion.div
                 className="rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-12 text-center backdrop-blur-xl"
@@ -453,7 +452,7 @@ export function MemoryCrystals() {
           </>
         )}
 
-        {/* Selected Crystal Modal / Detail Drawer */}
+        {/* SELECTED CRYSTAL MODAL / DETAIL DRAWER */}
         <AnimatePresence>
           {selected && (
             <CrystalDetail

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const SIZE = 200;
 const STROKE = 10;
@@ -6,19 +6,13 @@ const RADIUS = (SIZE - STROKE) / 2;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
 function performanceLabel(score) {
-  if (score >= 90) return 'Outstanding';
-  if (score >= 80) return 'Excellent Performance';
-  if (score >= 70) return 'Good';
-  if (score >= 60) return 'Fair';
-  return 'Needs Improvement';
+  if (score >= 90) return "Outstanding";
+  if (score >= 80) return "Excellent Performance";
+  if (score >= 70) return "Good";
+  if (score >= 60) return "Fair";
+  return "Needs Improvement";
 }
 
-/**
- * The "Overall Score Screen" — a single, dramatic circular reveal of
- * interview.overallScore plus the two exit actions. Score-card /
- * feedback / skills detail live one step further, in InterviewReport,
- * reached via "View Full Report".
- */
 export function OverallScore({ interview, onViewReport, onBackToDashboard }) {
   const score = Math.round(interview?.overallScore ?? 0);
   const offset = CIRCUMFERENCE * (1 - Math.min(100, Math.max(0, score)) / 100);
@@ -38,11 +32,20 @@ export function OverallScore({ interview, onViewReport, onBackToDashboard }) {
         <div className="relative" style={{ width: SIZE, height: SIZE }}>
           <div
             className="absolute inset-0 rounded-full blur-2xl"
-            style={{ background: 'radial-gradient(circle, rgba(167,139,250,0.35) 0%, transparent 70%)' }}
+            style={{
+              background:
+                "radial-gradient(circle, rgba(167,139,250,0.35) 0%, transparent 70%)",
+            }}
           />
           <svg width={SIZE} height={SIZE} className="relative -rotate-90">
             <defs>
-              <linearGradient id="score-ring" x1="0%" y1="0%" x2="100%" y2="100%">
+              <linearGradient
+                id="score-ring"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+              >
                 <stop offset="0%" stopColor="#a78bfa" />
                 <stop offset="100%" stopColor="#67e8f9" />
               </linearGradient>
@@ -66,7 +69,11 @@ export function OverallScore({ interview, onViewReport, onBackToDashboard }) {
               strokeDasharray={CIRCUMFERENCE}
               initial={{ strokeDashoffset: CIRCUMFERENCE }}
               animate={{ strokeDashoffset: offset }}
-              transition={{ duration: 1.3, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 1.3,
+                delay: 0.3,
+                ease: [0.16, 1, 0.3, 1],
+              }}
             />
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center">

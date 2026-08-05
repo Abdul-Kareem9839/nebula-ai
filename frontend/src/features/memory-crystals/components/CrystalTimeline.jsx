@@ -1,11 +1,5 @@
 import { motion } from "framer-motion";
 
-/**
- * Timeline layout (Phase 1, requirement 3). One card per interview,
- * expects `crystals` already sorted/filtered by the parent. Same crystal
- * shape as CrystalCard/CrystalDetail — see notes there.
- */
-
 function getScoreTone(overallScore) {
   const hasScore = overallScore != null;
   if (!hasScore) return { text: "text-nebula-text/40", dot: "#8b8ba3" };

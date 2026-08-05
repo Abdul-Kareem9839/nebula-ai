@@ -9,12 +9,6 @@ const STATE_LABEL = {
   analyzing: "Analyzing",
 };
 
-/**
- * Renders the current question as an AI message with a soft typing
- * reveal. Supports both:
- * - question: "What is React?"
- * - question: { text: "What is React?", topic, difficulty }
- */
 export function QuestionDisplay({ question, orbState = "idle" }) {
   const [typed, setTyped] = useState("");
 

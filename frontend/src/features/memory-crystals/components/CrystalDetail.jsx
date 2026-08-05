@@ -161,7 +161,7 @@ export function CrystalDetail({
     .join(" • ");
   const rarityLabel = crystal.rarity || getRarityLabel(crystal.overallScore);
 
-  // Show status badge only for processing or failed states
+  /* SHOW STATUS BADGE ONLY FOR PROCESSING OR FAILED STATES */
   const showStatusBadge =
     crystal.status &&
     ["processing", "failed", "pending"].includes(crystal.status);
@@ -199,10 +199,10 @@ export function CrystalDetail({
           </div>
         ) : (
           <div className="flex flex-col gap-6">
-            {/* Top Header Section */}
+            {/* TOP HEADER SECTION */}
             <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
               <div className="flex items-center gap-3.5">
-                {/* Crystal Icon */}
+                {/* CRYSTAL ICON */}
                 <div
                   className="h-11 w-11 shrink-0 rounded-xl"
                   style={{
@@ -246,7 +246,7 @@ export function CrystalDetail({
               </div>
 
               <div className="flex items-center gap-4">
-                {/* Overall Score Focus / Compact Not Evaluated State */}
+                {/* OVERALL SCORE FOCUS / COMPACT NOT EVALUATED STATE */}
                 {hasScore ? (
                   <div className="flex items-baseline gap-2.5">
                     <div className="text-right">
@@ -265,7 +265,7 @@ export function CrystalDetail({
                   </div>
                 )}
 
-                {/* Close Button */}
+                {/* CLOSE BUTTON */}
                 <button
                   type="button"
                   onClick={onClose}
@@ -277,7 +277,7 @@ export function CrystalDetail({
               </div>
             </div>
 
-            {/* Score Statistics Cards */}
+            {/* SCORE STATISTICS CARDS */}
             <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
               {subScores.map((score) => (
                 <ScoreStat
@@ -291,7 +291,7 @@ export function CrystalDetail({
               ))}
             </div>
 
-            {/* AI Summary Section */}
+            {/* AI SUMMARY SECTION */}
             <div className="py-2">
               <h3 className="mb-2 font-display text-xs font-semibold uppercase tracking-[0.24em] text-nebula-text/50">
                 AI Summary
@@ -309,7 +309,7 @@ export function CrystalDetail({
               )}
             </div>
 
-            {/* Skills Section */}
+            {/* SKILLS SECTION */}
             <div className="py-2">
               <h3 className="mb-2 font-display text-xs font-semibold uppercase tracking-[0.24em] text-nebula-text/50">
                 Skills Analyzed
@@ -334,7 +334,7 @@ export function CrystalDetail({
               )}
             </div>
 
-            {/* Strengths & Weaknesses (Two-column format without nested cards) */}
+            {/* STRENGTHS & WEAKNESSES */}
             {(strengths.length > 0 || weaknesses.length > 0) && (
               <div className="grid gap-6 border-t border-white/10 pt-4 lg:grid-cols-2">
                 {strengths.length > 0 && (
@@ -377,7 +377,7 @@ export function CrystalDetail({
               </div>
             )}
 
-            {/* Question Review Section */}
+            {/* QUESTION REVIEW SECTION */}
             {turns.length > 0 && (
               <div className="border-t border-white/10 pt-5">
                 <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
@@ -414,7 +414,7 @@ export function CrystalDetail({
                   </div>
                 </div>
 
-                {/* Question index buttons */}
+                {/* QUESTION INDEX BUTTONS */}
                 <div className="mb-4 flex flex-wrap gap-1.5">
                   {turns.map((_, index) => (
                     <button
@@ -469,7 +469,7 @@ export function CrystalDetail({
                         </div>
                       </div>
 
-                      {/* Lighter comparative answer and feedback cards */}
+                      {/* COMPARATIVE ANSWER AND FEEDBACK CARDS */}
                       <div className="grid gap-4 lg:grid-cols-2">
                         <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
                           <p className="text-[10px] uppercase tracking-[0.2em] text-nebula-text/40">
@@ -492,7 +492,7 @@ export function CrystalDetail({
                         </div>
                       </div>
 
-                      {/* Turn level Strengths & Weaknesses */}
+                      {/* TURN-LEVEL STRENGTHS & WEAKNESSES */}
                       {(selectedTurn.evaluation?.strengths?.length > 0 ||
                         selectedTurn.evaluation?.weaknesses?.length > 0) && (
                         <div className="grid gap-4 lg:grid-cols-2">
@@ -544,7 +544,7 @@ export function CrystalDetail({
                         </div>
                       )}
 
-                      {/* Model Answer Suggestion */}
+                      {/* MODEL ANSWER SUGGESTION */}
                       {selectedTurn.evaluation?.improvedAnswer && (
                         <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
                           <p className="text-[10px] uppercase tracking-[0.2em] text-nebula-text/40">

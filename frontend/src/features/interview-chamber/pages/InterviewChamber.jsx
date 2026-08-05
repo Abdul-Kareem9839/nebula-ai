@@ -34,7 +34,7 @@ export function InterviewChamber() {
   const [phase, setPhase] = useState("interview");
   const [evaluating, setEvaluating] = useState(false);
 
-  // Review mode
+  /* REVIEW MODE STATE */
   const [reviewIndex, setReviewIndex] = useState(null);
 
   const {
@@ -115,17 +115,11 @@ export function InterviewChamber() {
     navigate("/home");
   }
 
-  // -------------------------
-  // Completed Questions
-  // -------------------------
-
+  /* COMPLETED QUESTIONS */
   const completedTurns =
     interview?.turns.filter((turn) => turn.answer?.text) || [];
 
-  // -------------------------
-  // Live vs Review Mode
-  // -------------------------
-
+  /* LIVE VS REVIEW MODE */
   const currentTurn =
     reviewIndex !== null
       ? completedTurns[reviewIndex]
@@ -133,10 +127,7 @@ export function InterviewChamber() {
 
   const currentQuestion = currentTurn?.question?.text ?? "";
 
-  // -------------------------
-  // Proper analysis mapping
-  // -------------------------
-
+  /* ANALYSIS MAPPING */
   const analysis = currentTurn?.evaluation
     ? {
         scores: [
@@ -161,10 +152,7 @@ export function InterviewChamber() {
 
   const completedCount = completedTurns.length;
 
-  // -------------------------
-  // Review Controls
-  // -------------------------
-
+  /* REVIEW CONTROLS */
   function startReview() {
     if (!completedTurns.length) return;
 
@@ -238,7 +226,6 @@ export function InterviewChamber() {
                 isListening={isListening}
                 onToggleVoice={isListening ? stopListening : startListening}
                 analysis={analysis}
-                // Review
                 reviewIndex={reviewIndex}
                 reviewTotal={completedTurns.length}
                 onPrevious={showPrevious}

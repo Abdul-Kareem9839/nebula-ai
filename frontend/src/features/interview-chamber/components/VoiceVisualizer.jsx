@@ -1,12 +1,5 @@
 import { motion } from "framer-motion";
 
-/**
- * Ambient voice presence — replaces the boring mic-bar meter.
- * Reacts to the same state vocabulary as the Orb so the whole chamber
- * reads as one living surface.
- *
- * @param {'idle' | 'listening' | 'speaking'} state
- */
 export function VoiceVisualizer({ state = "idle" }) {
   const config = {
     idle: {

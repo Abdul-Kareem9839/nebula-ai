@@ -1,16 +1,11 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-/**
- * Floating glass strip showing completed / current / upcoming questions.
- * `total` is a soft target — the interview can end before or after it;
- * this is a progress cue, not a hard limit enforced anywhere.
- */
 export function InterviewProgress({ completed, total = 5 }) {
   const items = Array.from({ length: total }, (_, i) => {
     const index = i + 1;
-    if (index < completed + 1) return 'done';
-    if (index === completed + 1) return 'current';
-    return 'upcoming';
+    if (index < completed + 1) return "done";
+    if (index === completed + 1) return "current";
+    return "upcoming";
   });
 
   return (
@@ -24,20 +19,23 @@ export function InterviewProgress({ completed, total = 5 }) {
         <div key={i} className="flex items-center gap-1.5">
           <span
             className={`flex items-center justify-center rounded-full text-[10px] font-medium transition-all duration-500 ${
-              status === 'current' ? 'w-6 h-6' : 'w-2.5 h-2.5'
+              status === "current" ? "w-6 h-6" : "w-2.5 h-2.5"
             }`}
             style={{
               background:
-                status === 'done'
-                  ? 'rgba(103,232,249,0.85)'
-                  : status === 'current'
-                  ? 'rgba(167,139,250,0.9)'
-                  : 'rgba(255,255,255,0.12)',
-              boxShadow: status === 'current' ? '0 0 14px rgba(167,139,250,0.7)' : 'none',
-              color: status === 'current' ? '#0a0a14' : 'transparent',
+                status === "done"
+                  ? "rgba(103,232,249,0.85)"
+                  : status === "current"
+                    ? "rgba(167,139,250,0.9)"
+                    : "rgba(255,255,255,0.12)",
+              boxShadow:
+                status === "current"
+                  ? "0 0 14px rgba(167,139,250,0.7)"
+                  : "none",
+              color: status === "current" ? "#0a0a14" : "transparent",
             }}
           >
-            {status === 'current' ? i + 1 : ''}
+            {status === "current" ? i + 1 : ""}
           </span>
         </div>
       ))}

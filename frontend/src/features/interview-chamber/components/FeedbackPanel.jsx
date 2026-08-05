@@ -1,10 +1,5 @@
 import { motion } from "framer-motion";
 
-/**
- * Overall feedback + strengths/weaknesses, read straight from the real
- * schema fields: summary.overallFeedback, summary.strengths,
- * summary.weaknesses. Empty/missing arrays just render nothing.
- */
 export function FeedbackPanel({
   overallFeedback,
   strengths = [],

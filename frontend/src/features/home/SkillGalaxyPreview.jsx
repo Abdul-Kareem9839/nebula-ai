@@ -27,9 +27,9 @@ export function SkillGalaxyPreview() {
         skills.
       </p>
 
-      {/* Galaxy Container */}
+      {/* GALAXY CONTAINER */}
       <div className="relative h-72 w-full">
-        {/* Constellation Lines */}
+        {/* CONSTELLATION LINES */}
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none overflow-visible"
           aria-hidden="true"
@@ -52,14 +52,13 @@ export function SkillGalaxyPreview() {
           })}
         </svg>
 
-        {/* Stars / Skills */}
+        {/* STARS / SKILLS */}
         {PREVIEW_SKILLS.map((skill, i) => (
           <div
             key={skill.name}
             className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-auto"
             style={{ top: `${skill.top}%`, left: `${skill.left}%` }}
           >
-            {/* Star Node Container */}
             <motion.div
               className="relative flex items-center justify-center cursor-pointer group"
               animate={{ y: [0, -5, 0] }}
@@ -69,7 +68,6 @@ export function SkillGalaxyPreview() {
                 ease: "easeInOut",
               }}
             >
-              {/* Outer Glowing Aura */}
               <div
                 className="absolute rounded-full bg-cyan-400/20 blur-md transition-transform duration-300 group-hover:scale-150"
                 style={{
@@ -78,7 +76,6 @@ export function SkillGalaxyPreview() {
                 }}
               />
 
-              {/* Core Star */}
               <span
                 className="relative rounded-full bg-cyan-300 shadow-[0_0_15px_rgba(103,232,249,0.8)] transition-all duration-300 group-hover:bg-white group-hover:shadow-[0_0_22px_rgba(103,232,249,1)]"
                 style={{
@@ -88,7 +85,6 @@ export function SkillGalaxyPreview() {
               />
             </motion.div>
 
-            {/* Label below node */}
             <span className="mt-2.5 text-xs font-medium text-nebula-text/60 tracking-wider whitespace-nowrap transition-colors duration-200 hover:text-cyan-300">
               {skill.name}
             </span>
@@ -96,7 +92,7 @@ export function SkillGalaxyPreview() {
         ))}
       </div>
 
-      {/* Enhanced Explore Button */}
+      {/* EXPLORE BUTTON */}
       <div>
         <Link
           to="/skill-galaxy"

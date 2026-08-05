@@ -6,7 +6,11 @@ import { GalaxyHeader } from "./components/GalaxyHeader.jsx";
 import { GalaxyCanvas } from "./components/GalaxyCanvas.jsx";
 import { SkillDetailDrawer } from "./components/SkillDetailDrawer.jsx";
 import { GalaxyStatsFooter } from "./components/GalaxyStatsFooter.jsx";
-import { normalizeConfidence, TIER_CONFIG, getTier } from "./utils/skillHelpers.js";
+import {
+  normalizeConfidence,
+  TIER_CONFIG,
+  getTier,
+} from "./utils/skillHelpers.js";
 
 export function SkillGalaxy() {
   const [skills, setSkills] = useState([]);
@@ -14,11 +18,10 @@ export function SkillGalaxy() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  // Search, Filter, Sort State
   const [searchQuery, setSearchQuery] = useState("");
   const [filterCategory, setFilterCategory] = useState("All");
 
-  // Interactive Selection & Zoom State
+  /* INTERACTIVE SELECTION & ZOOM STATE */
   const [selectedSkill, setSelectedSkill] = useState(null);
   const [hoveredSkill, setHoveredSkill] = useState(null);
   const [zoomLevel, setZoomLevel] = useState(1);
@@ -26,7 +29,7 @@ export function SkillGalaxy() {
   const [isDragging, setIsDragging] = useState(false);
   const dragStartRef = useRef({ x: 0, y: 0 });
 
-  // Fetch live skill data from the backend.
+  /* FETCH LIVE SKILL DATA FROM BACKEND */
   useEffect(() => {
     let active = true;
 
@@ -74,7 +77,7 @@ export function SkillGalaxy() {
     };
   }, []);
 
-  // Compute stats
+  /* COMPUTE STATS */
   const stats = useMemo(() => {
     if (!skills.length) return null;
     const sortedByConf = [...skills].sort(
@@ -98,11 +101,11 @@ export function SkillGalaxy() {
     };
   }, [skills]);
 
-  // Position nodes dynamically across orbit rings
+  /* POSITION NODES DYNAMICALLY ACROSS ORBIT RINGS */
   const positionedSkills = useMemo(() => {
     if (!skills.length) return [];
 
-    // Group skills into 4 rings by tier
+    /* GROUP SKILLS INTO 4 RINGS BY TIER */
     const rings = { 1: [], 2: [], 3: [], 4: [] };
     skills.forEach((skill) => {
       const tier = getTier(skill.confidence);
@@ -137,7 +140,7 @@ export function SkillGalaxy() {
     return result;
   }, [skills]);
 
-  // Filter & Sort for rendering or searching
+  /* FILTER & SORT FOR RENDERING OR SEARCHING */
   const filteredSkills = useMemo(() => {
     return positionedSkills.filter((s) => {
       const matchesSearch = (s.name || "")
@@ -158,7 +161,7 @@ export function SkillGalaxy() {
     [filteredSkills],
   );
 
-  // Handle Zoom and Pan
+  /* HANDLE ZOOM AND PAN */
   const handleWheel = (e) => {
     e.preventDefault();
     const zoomFactor = e.deltaY < 0 ? 1.1 : 0.9;
@@ -185,10 +188,9 @@ export function SkillGalaxy() {
 
   const handleMouseUp = () => setIsDragging(false);
 
-  // Focus Camera on Selected Skill
+  /* FOCUS CAMERA ON SELECTED SKILL */
   const handleSelectSkill = (skill) => {
     setSelectedSkill(skill);
-    // Smoothly pan towards selected node
     if (skill) {
       setPanOffset({
         x: -skill.x * zoomLevel * 0.5,
